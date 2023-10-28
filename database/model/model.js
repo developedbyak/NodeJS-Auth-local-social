@@ -19,21 +19,20 @@ const User = mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
 
-// todo: Only work for local authentication
+// use any method both are working !
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// todo: if you want social-auth like google use code below and comment line 35,36 .
 // passport.serializeUser(function (user, cb) {
-//   process.nextTick(function () {
-//     cb(null, { id: user.id, username: user.username });
-//   });
+//     process.nextTick(function () {
+//         cb(null, { id: user.id, username: user.username });
+//     });
 // });
 
 // passport.deserializeUser(function (user, cb) {
-//   process.nextTick(function () {
-//     return cb(null, user);
-//   });
+//     process.nextTick(function () {
+//         return cb(null, user);
+//     });
 // });
 
 passport.use(
